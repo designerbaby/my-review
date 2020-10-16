@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="./main.css" /> -->
+    <style type="text/css">
+        .traffic-light {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 1px solid red;
+        }
+    </style>
+    <script src="./main.js"></script>
+</head>
+<body>
+    <div class="traffic-light" id="traffic-light"></div>
+    <script>
+        function sleep(duration) {
+            console.log('sleep duration:', duration)
+            return new Promise(function (resolve) {
+                console.log('promise')
+                setTimeout(() => {
+                    console.log('setTimeout')
+                    resolve()
+                }, duration);
+            })
+        }
+        function changeColor(color) {
+            console.log('changeColor color:', color)
+            document.getElementById('traffic-light').style.background = color;
+        }
+        async function main() {
+            console.log('main')
+            while(true) {
+                console.log('green')
+                changeColor('green');
+                await sleep(3000);
+                console.log('yellow')
+                changeColor('yellow');
+                await sleep(1000);
+                console.log('red')
+                changeColor('red');
+                await sleep(2000);
+            }
+        }
+        // main()
+        // for (var i = 0; i < 5; i++) {
+        //     setTimeout(function () {
+        //         console.log(i);
+        //         console.log('1000*i', 1000 * i)
+        //     }, 1000 * i);
+        // }
+        // for (var i = 0; i < 5; i++) {
+        //     (function (i) {
+        //         setTimeout(function () {
+        //             console.log(i);
+        //             console.log('i * 1000:', i * 1000)
+        //         }, i * 1000);
+        //     })(i);
+        // }
+        // for (var i = 0; i < 5; i++) {
+        //     (function () {
+        //         setTimeout(function () {
+        //             console.log(i);
+        //             console.log('i * 1000:', i * 1000);
+        //         }, i * 1000);
+        //     })(i);
+        // }
+        // for (var i = 0; i < 5; i++) {
+        //     setTimeout((function (i) {
+        //         console.log(i);
+        //     })(i), i * 1000);
+        // }
+        // const num = 1;
+        // function a() {
+        //     console.log('num a:', num);
+        // }
+        // b = () => {
+        //     console.log('num b:', num);
+        // }
+        // a();
+        // b();
+        // function Person() {
+        //     this.age = 0;
+           
+        //     function a () {
+        //         console.log('a this.age:', this.age);
+        //     }
+        //     setTimeout(() =>  {
+        //         console.log('this.age:', this.age)
+        //         this.age++; // |this| 正确地指向 p 实例
+        //     }, 1000);
+        //     a();
+        // }
+
+        // var p = new Person();
+        // p
+        // function Person() {
+        //     this.age = 0;
+        //     var closure = "123"
+        //     setInterval(function growUp() {
+        //         this.age++;
+        //         console.log('this.age growUp:', this.age)
+        //         console.log(closure)
+        //     }, 1000);
+        // }
+        // // undefined
+        // // 123
+        // var p = new Person();
+
+        // function PersonX() {
+        //     'use strict'
+        //     this.age = 0;
+        //     var closure = "123"
+        //     setInterval(() => {
+        //         console.log('this.age:', this.age)
+        //         this.age++;
+        //         console.log(closure)
+        //     }, 1000);
+        // }
+        // var px = new PersonX();
+        // p;
+        // px;
+        // var arguments = [1, 2, 3];
+        // var arr = () => arguments[0];
+        
+        // console.log('arr():', arr());
+        // function foo(n) {
+        //     var f = () => arguments[0] + n; // 隐式绑定 foo 函数的 arguments 对象. arguments[0] 是 n
+        //     return f();
+        // }
+
+        // console.log('foo(1):', foo(1));
+        // var reduce = (x) => (x === 0 ? 1 : x * reduce(x-1));
+        // console.log('reduce:', reduce(10));
+        // let foo = {
+        //     value: 1,
+        //     getValue() { console.log(this.value)} 
+        // }
+        // foo.getValue() // undefined
+        // function Foo() {
+        //     this.value = 1
+        // }
+
+        // Foo.prototype.getValue = () => console.log(this.value)
+
+        // let foo = new Foo()
+        // foo.getValue();  // undefined
+            // var a = 1;
+            // var b = 2;
+            // a = a ^ b; // 0001 // 0010 a =0011
+            // b = a ^ b; // 0011 // 0010 b =0001
+            // a = a ^ b; // 0011 // 0001 a =0010
+            // console.log('a:', a)
+            // console.log('b:', b)
+
+        const array = [1, 2, 3, 3]
+        // ...new Set(array)
+    </script>
+</body>
+</html>
