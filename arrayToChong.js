@@ -1,3 +1,4 @@
+// 数组去重
 function arrayToChong () {
   let arr = [1,3,4,6,3,7,8]
   let result = []
