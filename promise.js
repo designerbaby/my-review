@@ -86,7 +86,7 @@ function Promise(fn) {
   }
 
   function handle (callback) { // 处理函数
-    if (state === 'pending') {
+    if (state === 'pending') { // 如果是等待状态
       callbacks.push(callback)
       return
     } 
@@ -94,7 +94,7 @@ function Promise(fn) {
     const cb = state === 'fulfilled' ? callback.onFulfilled : callback.onRejected
     const next = state === 'fulfilled' ? callback.resolve : callback.reject
 
-    if (!cb) {  // 不是resolve或者reject方法
+    if (!cb) {  // 执行态或拒绝态
       next(value)
       return
     }
