@@ -44,7 +44,7 @@ function Promise(fn) {
     })
   }
 
-  this.all = function (arr) { // all方法的使用
+  this.all = function (arr) { // all方法的使用，所有方法都执行
     let args = Array.prototype.slice.call(arr)
     return new Promise(function(resolve, reject) {
       if (args.length === 0) return resolve([])
@@ -77,7 +77,7 @@ function Promise(fn) {
     })
   }
 
-  this.race = function(values) { // race方法的使用
+  this.race = function(values) { // race方法的使用,只执行一次
     return new Promise(function(resolve, reject) {
       for (var i = 0, len = values.length; i < len; i++) {
         values[i].then(resolve, reject);
