@@ -50,6 +50,7 @@ MyPromise.all = function (promiseSet) {
   return p;
 }
 
+// 只执行一次
 MyPromise.race = function (promiseSet) {
   let dfResolve;
   let dfReject;
